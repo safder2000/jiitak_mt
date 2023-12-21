@@ -9,6 +9,7 @@ import 'package:jiitak_mt/app/modules/home/view/widgets/home_floating_btn.dart';
 import 'package:jiitak_mt/utils/constants.dart';
 
 import '../../edit_store_profile/view/edit_store_profile_screen.dart';
+import '../../stamp_details/view/stamp_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -27,7 +28,11 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          DateContainer(srcWidth: srcWidth),
+          GestureDetector(
+              onTap: () {
+                Get.toNamed(StampDetailsScreen.routeName);
+              },
+              child: DateContainer(srcWidth: srcWidth)),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(

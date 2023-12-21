@@ -38,6 +38,8 @@ dependencies:
   get: ^4.6.5
   flutter_svg: ^2.0.9
   flutter_screenutil: ^5.9.0
+  # carousel_slider: ^4.2.1
+  # card_swiper: ^3.0.1
 
 dev_dependencies:
   flutter_test:

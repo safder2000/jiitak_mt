@@ -9,10 +9,14 @@ class ShadowContainer extends StatelessWidget {
     this.margin,
     this.borderRadius = 10,
     this.padding,
+    this.blurRadius = 5.0,
+    this.spreadRadius = 2.0,
   });
 
   final double? width;
   final double? height;
+  final double blurRadius;
+  final double spreadRadius;
   final Widget child;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
@@ -28,12 +32,13 @@ class ShadowContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color.fromARGB(0, 255, 255, 255),
         borderRadius: BorderRadius.circular(borderRadius),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             color: Color.fromARGB(50, 215, 215,
                 215), // Adjust the alpha value for a lighter shadow
-            blurRadius: 5.0,
-            spreadRadius: 2.0, // Adjust the spread radius for a lighter shadow
+            blurRadius: blurRadius,
+            spreadRadius:
+                spreadRadius, // Adjust the spread radius for a lighter shadow
           ),
         ],
       ),

@@ -13,23 +13,22 @@ const kOrangeGradientLight4 = Color.fromARGB(255, 255, 215, 141);
 const scaffoldWhite = Color.fromARGB(255, 249, 249, 249);
 const kSearchfieldBgGray = Color.fromARGB(255, 247, 247, 247);
 
-//text color
 const kWhite = Colors.white;
 const kBlack = Colors.black;
 const kGray = Colors.grey;
+const kTextGray = Color.fromARGB(255, 69, 69, 69);
 const kDarkGray = Color.fromARGB(255, 75, 73, 72);
-
+const kLightPurple = Color.fromARGB(255, 168, 177, 255);
+const kPurple = Color.fromARGB(255, 148, 158, 255);
+//text color
 const kTextOrange = Color.fromARGB(255, 250, 170, 20);
 const kLightRed = Color.fromARGB(255, 238, 95, 64);
 const kTextRed = Color.fromARGB(255, 205, 39, 2);
 const kTextLightGray = Color.fromARGB(255, 193, 193, 193);
 const kTextLightGray2 = Color.fromARGB(255, 226, 226, 226);
-const kTextLightGray3 = Color.fromARGB(22, 140, 129, 123);
-
 //transparent colors
 const kOrangeLight4 = Color.fromARGB(48, 255, 211, 141);
-const kTransparent = Color.fromARGB(0, 255, 255, 255);
-
+const kTextLightGray3 = Color.fromARGB(22, 140, 129, 123);
 //sizedBoxes
 
 const kHeight0 = SizedBox(height: 0);
