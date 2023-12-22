@@ -6,9 +6,11 @@ import 'package:jiitak_mt/utils/constants.dart';
 
 import '../../../../utils/strings.dart';
 import '../../home/view/home_screen.dart';
-import '../../page2/view/page2.dart';
-import '../../page3/view/page3.dart';
-import '../../page4/view/page4.dart';
+
+import '../../home/view/widgets/page2.dart';
+import '../../home/view/widgets/page3.dart';
+
+import '../../home/view/widgets/page4.dart';
 import '../controllers/bottom_nav_controller.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -24,7 +26,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: PositionedFloatingActionButton(),
+      floatingActionButton: const PositionedFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Obx(
           () => _buildPage(Get.find<BottomNavController>().currentIndex.value)),

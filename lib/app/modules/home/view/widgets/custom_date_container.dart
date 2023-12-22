@@ -55,37 +55,40 @@ class SingleDateBox extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-          child: Container(
-            height: 80,
-            width: 52.5,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(11.0),
-              color: isSelected ? kTextOrange : kSearchfieldBgGray,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                kHeight8,
-                Text(
-                  dateNo,
-                  style: TextStyle(
-                    color: isSelected ? kWhite : kBlack,
-                    fontSize: 19.2,
-                    fontWeight: FontWeight.bold,
+          child: InkWell(
+            onTap: () {},
+            child: Container(
+              height: 80,
+              width: 52.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(11.0),
+                color: isSelected ? kTextOrange : kSearchfieldBgGray,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  kHeight8,
+                  Text(
+                    dateNo,
+                    style: TextStyle(
+                      color: isSelected ? kWhite : kBlack,
+                      fontSize: 19.2,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                kHeight5,
-                Text(
-                  dateText,
-                  style: TextStyle(
-                    color: isSelected ? kWhite : kBlack,
-                    fontSize: 19.2,
-                    fontWeight: FontWeight.bold,
+                  kHeight5,
+                  Text(
+                    dateText,
+                    style: TextStyle(
+                      color: isSelected ? kWhite : kBlack,
+                      fontSize: 19.2,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                kHeight8,
-              ],
+                  kHeight8,
+                ],
+              ),
             ),
           ),
         ),

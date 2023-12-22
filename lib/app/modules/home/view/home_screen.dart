@@ -8,6 +8,7 @@ import 'package:jiitak_mt/app/modules/home/view/widgets/custom_appbar.dart';
 import 'package:jiitak_mt/app/modules/home/view/widgets/home_floating_btn.dart';
 import 'package:jiitak_mt/utils/constants.dart';
 
+import '../../../../utils/widgets/dialog_helper.dart';
 import '../../edit_store_profile/view/edit_store_profile_screen.dart';
 import '../../stamp_details/view/stamp_details_screen.dart';
 
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DialogHelper.hideDialog();
     var srcWidth = Get.width;
 
     return Scaffold(
@@ -28,11 +30,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          GestureDetector(
-              onTap: () {
-                Get.toNamed(StampDetailsScreen.routeName);
-              },
-              child: DateContainer(srcWidth: srcWidth)),
+          DateContainer(srcWidth: srcWidth),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
@@ -61,14 +59,8 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         ...List.generate(
                             3,
-                            (index) => GestureDetector(
-                                  onTap: () {
-                                    Get.toNamed(
-                                        EditStoreProfileScreen.routeName);
-                                  },
-                                  child: HomeCard(
-                                    srcWidth: srcWidth,
-                                  ),
+                            (index) => HomeCard(
+                                  srcWidth: srcWidth,
                                 ))
                       ],
                     ),

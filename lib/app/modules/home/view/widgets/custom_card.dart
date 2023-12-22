@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/strings.dart';
 import '../../../../../utils/widgets/shadow_container.dart';
-import '../../controller/home_controller.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({

@@ -20,6 +20,7 @@ const kTextGray = Color.fromARGB(255, 69, 69, 69);
 const kDarkGray = Color.fromARGB(255, 75, 73, 72);
 const kLightPurple = Color.fromARGB(255, 168, 177, 255);
 const kPurple = Color.fromARGB(255, 148, 158, 255);
+const kGreen = Color.fromARGB(255, 69, 222, 69);
 //text color
 const kTextOrange = Color.fromARGB(255, 250, 170, 20);
 const kLightRed = Color.fromARGB(255, 238, 95, 64);

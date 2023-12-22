@@ -10,6 +10,7 @@ import 'package:jiitak_mt/utils/widgets/custom_textfield.dart';
 
 import '../../../../utils/strings.dart';
 
+import '../../../../utils/widgets/dialog_helper.dart';
 import 'widgets/custom_dropdown_field.dart';
 import 'widgets/image_field.dart';
 
@@ -20,6 +21,7 @@ class EditStoreProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DialogHelper.hideDialog();
     return Scaffold(
       backgroundColor: kWhite,
       appBar: PreferredSize(
@@ -128,23 +130,67 @@ class EditStoreProfileScreen extends StatelessWidget {
   Column _checkBoxSection() {
     return Column(
       children: [
-        CheckBoxFieldItem(
-          title: '定休日',
-          namedCheckBoxList: [
-            NamedCheckbox(title: '月', onChanged: (value) {}, value: true),
-            NamedCheckbox(title: '火', onChanged: (value) {}, value: false),
-            NamedCheckbox(title: '水', onChanged: (value) {}, value: false),
-            NamedCheckbox(title: '木', onChanged: (value) {}, value: false),
-          ],
+        Obx(
+          () => CheckBoxFieldItem(
+            title: '定休日',
+            namedCheckBoxList: [
+              NamedCheckbox(
+                  title: '月',
+                  onChanged: (value) {
+                    ctrl.checkBox1.value = !ctrl.checkBox1.value;
+                  },
+                  value: ctrl.checkBox1.value),
+              NamedCheckbox(
+                  title: '火',
+                  onChanged: (value) {
+                    ctrl.checkBox2.value = !ctrl.checkBox2.value;
+                  },
+                  value: ctrl.checkBox2.value),
+              NamedCheckbox(
+                  title: '水',
+                  onChanged: (value) {
+                    ctrl.checkBox3.value = !ctrl.checkBox3.value;
+                  },
+                  value: ctrl.checkBox3.value),
+              NamedCheckbox(
+                  title: '木',
+                  onChanged: (value) {
+                    ctrl.checkBox4.value = !ctrl.checkBox4.value;
+                  },
+                  value: ctrl.checkBox4.value),
+            ],
+          ),
         ),
-        CheckBoxFieldItem(
-          title: '',
-          namedCheckBoxList: [
-            NamedCheckbox(title: '金', onChanged: (value) {}, value: false),
-            NamedCheckbox(title: '土', onChanged: (value) {}, value: true),
-            NamedCheckbox(title: '日', onChanged: (value) {}, value: true),
-            NamedCheckbox(title: '祝', onChanged: (value) {}, value: false),
-          ],
+        Obx(
+          () => CheckBoxFieldItem(
+            title: '',
+            namedCheckBoxList: [
+              NamedCheckbox(
+                  title: '金',
+                  onChanged: (value) {
+                    ctrl.checkBox5.value = !ctrl.checkBox5.value;
+                  },
+                  value: ctrl.checkBox5.value),
+              NamedCheckbox(
+                  title: '土',
+                  onChanged: (value) {
+                    ctrl.checkBox6.value = !ctrl.checkBox6.value;
+                  },
+                  value: ctrl.checkBox6.value),
+              NamedCheckbox(
+                  title: '日',
+                  onChanged: (value) {
+                    ctrl.checkBox7.value = !ctrl.checkBox7.value;
+                  },
+                  value: ctrl.checkBox7.value),
+              NamedCheckbox(
+                  title: '祝',
+                  onChanged: (value) {
+                    ctrl.checkBox8.value = !ctrl.checkBox8.value;
+                  },
+                  value: ctrl.checkBox8.value),
+            ],
+          ),
         ),
         kHeight20,
       ],
@@ -154,29 +200,64 @@ class EditStoreProfileScreen extends StatelessWidget {
   Column _checkBoxSection2() {
     return Column(
       children: [
-        CheckBoxFieldItem(
-          title: '喫煙席',
-          namedCheckBoxList: [
-            NamedCheckbox(title: '有', onChanged: (value) {}, value: false),
-            NamedCheckbox(title: '無', onChanged: (value) {}, value: true),
-          ],
+        Obx(
+          () => CheckBoxFieldItem(
+            title: '喫煙席',
+            namedCheckBoxList: [
+              NamedCheckbox(
+                  title: '有',
+                  onChanged: (value) {
+                    ctrl.checkBox9.value = !ctrl.checkBox9.value;
+                  },
+                  value: ctrl.checkBox9.value),
+              NamedCheckbox(
+                  title: '無',
+                  onChanged: (value) {
+                    ctrl.checkBox10.value = !ctrl.checkBox10.value;
+                  },
+                  value: ctrl.checkBox10.value),
+            ],
+          ),
         ),
         kHeight20,
-        CheckBoxFieldItem(
-          title: '駐車場',
-          namedCheckBoxList: [
-            NamedCheckbox(title: '有', onChanged: (value) {}, value: false),
-            NamedCheckbox(title: '無', onChanged: (value) {}, value: false),
-          ],
+        Obx(
+          () => CheckBoxFieldItem(
+            title: '駐車場',
+            namedCheckBoxList: [
+              NamedCheckbox(
+                  title: '有',
+                  onChanged: (value) {
+                    ctrl.checkBox11.value = !ctrl.checkBox11.value;
+                  },
+                  value: ctrl.checkBox11.value),
+              NamedCheckbox(
+                  title: '無',
+                  onChanged: (value) {
+                    ctrl.checkBox12.value = !ctrl.checkBox12.value;
+                  },
+                  value: ctrl.checkBox12.value),
+            ],
+          ),
         ),
         kHeight20,
-        CheckBoxFieldItem(
-          title: '来店プレゼント',
-          namedCheckBoxList: [
-            NamedCheckbox(
-                title: '有（最大３枚まで）', onChanged: (value) {}, value: false),
-            NamedCheckbox(title: '無', onChanged: (value) {}, value: false),
-          ],
+        Obx(
+          () => CheckBoxFieldItem(
+            title: '来店プレゼント',
+            namedCheckBoxList: [
+              NamedCheckbox(
+                  title: '有（最大３枚まで）',
+                  onChanged: (value) {
+                    ctrl.checkBox13.value = !ctrl.checkBox13.value;
+                  },
+                  value: ctrl.checkBox13.value),
+              NamedCheckbox(
+                  title: '無',
+                  onChanged: (value) {
+                    ctrl.checkBox14.value = !ctrl.checkBox14.value;
+                  },
+                  value: ctrl.checkBox14.value),
+            ],
+          ),
         ),
       ],
     );

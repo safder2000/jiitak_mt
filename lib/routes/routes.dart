@@ -4,6 +4,7 @@ import 'package:jiitak_mt/splash_screen.dart';
 import '../app/modules/bottom_navigation/views/bottom_nav_screen.dart';
 import '../app/modules/edit_store_profile/view/edit_store_profile_screen.dart';
 import '../app/modules/home/view/home_screen.dart';
+import '../app/modules/main_screen/view/main_screen.dart';
 import '../app/modules/stamp_details/view/stamp_details_screen.dart';
 
 final List<GetPage> getRoutes = [
@@ -27,5 +28,9 @@ final List<GetPage> getRoutes = [
   GetPage(
     name: StampDetailsScreen.routeName,
     page: () => StampDetailsScreen(),
+  ),
+  GetPage(
+    name: MainScreen.routeName,
+    page: () => MainScreen(),
   ),
 ];

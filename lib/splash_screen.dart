@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jiitak_mt/app/modules/main_screen/view/main_screen.dart';
 
 import 'app/modules/bottom_navigation/views/bottom_nav_screen.dart';
 import 'utils/constants.dart';
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> checkUserLoggedIn() async {
     await Future.delayed(const Duration(seconds: 2))
-        .then((value) => Get.offAndToNamed(BottomNavScreen.routeName));
+        .then((value) => Get.offAndToNamed(MainScreen.routeName));
   }
 
   @override

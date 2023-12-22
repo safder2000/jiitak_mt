@@ -9,44 +9,54 @@ class AcquisitionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ListTile(
-      title: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return const Column(
+      children: [
+        ListTile(
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                '2021 / 11 / 18',
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromARGB(255, 181, 181, 181)),
-              ),
-              Text(
-                'スタンプを獲得しました。',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromARGB(255, 69, 69, 69)),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '2021 / 11 / 18',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                        color: Color.fromARGB(255, 181, 181, 181)),
+                  ),
+                  Text(
+                    'スタンプを獲得しました。',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        color: Color.fromARGB(255, 69, 69, 69)),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
-      trailing: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            '1 個',
-            style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 69, 69, 69)),
+          trailing: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                '1 個',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 69, 69, 69)),
+              ),
+              kHeight5
+            ],
           ),
-          kHeight5
-        ],
-      ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 18),
+          child: Divider(
+            color: Color.fromARGB(255, 222, 222, 222),
+          ),
+        )
+      ],
     );
   }
 }

@@ -16,6 +16,7 @@ class StampDetailsAppBar extends StatelessWidget
       elevation: 0,
       automaticallyImplyLeading: false,
       backgroundColor: kLightPurple,
+      surfaceTintColor: kLightPurple,
       // shape: const ContinuousRectangleBorder(
       //   borderRadius: BorderRadius.only(
       //     bottomLeft: Radius.circular(20.0),

@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:jiitak_mt/app/modules/stamp_details/controller/stamp_details_controller.dart';
 import 'package:jiitak_mt/app/modules/stamp_details/view/widgets/acquisition_tile.dart';
 import 'package:jiitak_mt/app/modules/stamp_details/view/widgets/appbar_stamp_details.dart';
-import 'package:jiitak_mt/app/modules/stamp_details/view/widgets/star_card.dart';
+
 import 'package:jiitak_mt/utils/constants.dart';
 
 import '../../../../utils/widgets/carouel_slider/carousel_slider.dart';
+import '../../../../utils/widgets/dialog_helper.dart';
 
 class StampDetailsScreen extends StatelessWidget {
   static String routeName = "/stamp_details_screen";
+  StampDetailsScreen({super.key});
+  final ctrl = Get.put(StampDetailController());
 
-  const StampDetailsScreen({super.key});
   // stamp_details_screen
   @override
   Widget build(BuildContext context) {
+    DialogHelper.hideDialog();
     return Scaffold(
       backgroundColor: kWhite,
       appBar: PreferredSize(
@@ -27,67 +31,83 @@ class StampDetailsScreen extends StatelessWidget {
           CarouselSlider(
             options: CarouselOptions(
               height: Get.width / 1.6,
-
-              viewportFraction: 0.8,
+              onPageChanged: (index, reason) {
+                ctrl.currentStarCardIndex.value = index + 1;
+              },
+              viewportFraction: 0.84,
               enlargeCenterPage: false,
               // enableInfiniteScroll: false,
             ),
             items: List.generate(
-              5, // Replace with the number of StartCard items you have
-              (index) => const StartCard(),
+              ctrl.StarCardList
+                  .length, // Replace with the number of StartCard items you have
+              (index) => ctrl.StarCardList.value[index],
             ),
           ),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
-                    child: Text(
-                      '2 / 2枚目',
-                      style: TextStyle(color: kTextGray, fontSize: 13),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 70),
+                    child: Obx(
+                      () => Text(
+                        '${ctrl.currentStarCardIndex} / ${ctrl.StarCardList.length}枚目',
+                        style: const TextStyle(color: kTextGray, fontSize: 13),
+                      ),
                     ),
                   ),
-                  // Other widgets above the scrollable content
-
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 13),
-                        child: Text(
-                          'スタンプ獲得履歴',
-                          style: TextStyle(
-                              color: kTextGray,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      kWidth40,
-                      SizedBox(
-                        height: Get.height /
-                            2.7, // Set a specific height for your ListView
-                        child: ListView.separated(
-                          shrinkWrap: true,
-                          itemBuilder: (BuildContext context, int index) =>
-                              const AcquisitionTile(),
-                          itemCount: 10,
-                          separatorBuilder: (BuildContext context, int index) =>
-                              const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12),
-                            child: Divider(
-                                color: Color.fromARGB(255, 231, 231, 231)),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  // Other widgets below the scrollable content
                 ],
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+                child: Text(
+                  'スタンプ獲得履歴',
+                  style: TextStyle(
+                      color: kTextGray,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          Flexible(
+            flex: 2,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    kWidth40,
+
+                    ...List.generate(
+                        growable: false, 10, (index) => const AcquisitionTile())
+                    // SizedBox(
+                    //   // height: Get.height /
+                    //   //     2.7, // Set a specific height for your ListView
+                    //   child: Expanded(
+                    //     child: ListView.separated(
+                    //       shrinkWrap: true,
+                    //       itemBuilder: (BuildContext context, int index) =>
+                    //           const AcquisitionTile(),
+                    //       itemCount: 10,
+                    //       separatorBuilder:
+                    //           (BuildContext context, int index) =>
+                    //               const Padding(
+                    //         padding: EdgeInsets.symmetric(horizontal: 12),
+                    //         child: Divider(
+                    //             color: Color.fromARGB(255, 231, 231, 231)),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
+                ),
               ),
             ),
           )

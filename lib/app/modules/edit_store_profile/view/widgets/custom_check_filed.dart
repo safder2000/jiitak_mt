@@ -73,7 +73,7 @@ class NamedCheckbox extends StatelessWidget {
       children: [
         SizedBox(
           child: Checkbox(
-            visualDensity: VisualDensity(
+            visualDensity: const VisualDensity(
               horizontal:
                   VisualDensity.minimumDensity, // Adjust the horizontal density
               vertical:
@@ -81,7 +81,7 @@ class NamedCheckbox extends StatelessWidget {
             ),
             activeColor: kOrangeGradientDark,
             value: value,
-            onChanged: (bool? value) {},
+            onChanged: onChanged,
           ),
         ),
         Text(

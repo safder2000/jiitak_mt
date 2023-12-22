@@ -16,6 +16,7 @@ class HomeAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       surfaceTintColor: scaffoldWhite,
       title: CupertinoTextField(
         padding: EdgeInsets.symmetric(
