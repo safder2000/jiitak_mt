@@ -22,7 +22,8 @@ class StampDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kWhite,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(Get.width / 6),
+        preferredSize: Size.fromHeight(
+            Get.width > Get.height ? Get.height / 6 : Get.width / 6),
         child: const StampDetailsAppBar(),
       ),
       body: Column(
@@ -30,7 +31,8 @@ class StampDetailsScreen extends StatelessWidget {
           const AppbarExtraWithCurve(),
           CarouselSlider(
             options: CarouselOptions(
-              height: Get.width / 1.6,
+              height:
+                  Get.width > Get.height ? Get.height / 1.6 : Get.width / 1.6,
               onPageChanged: (index, reason) {
                 ctrl.currentStarCardIndex.value = index + 1;
               },
